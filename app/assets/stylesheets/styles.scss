@@ -1,3 +1,16 @@
+.primary-link {
+  color: #333;
+  text-decoration: none;
+  &:hover {
+    color:  #ff6a33;
+    text-decoration: underline;
+  }
+}
+
+.header {
+  background-color: antiquewhite;
+}
+
 .devise-form {
   margin: 5% auto auto;
   width: 24rem;

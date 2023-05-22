@@ -11,6 +11,8 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
 
   body
+    = render 'shared/header' if current_user
+
     #main-container.container-fluid
       #flash
         = render 'shared/flash'
