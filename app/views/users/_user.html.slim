@@ -21,4 +21,7 @@
 .mb-2
   span> Last sign in ip:
   = user.last_sign_in_ip
+
+.mb-2
+  = link_to 'Delete user', user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'primary-link'
 hr

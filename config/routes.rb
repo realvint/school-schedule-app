@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#landing_page'
 
-  resources :users, only: %i[index show]
+  resources :users, only: %i[index show destroy]
 
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 end
