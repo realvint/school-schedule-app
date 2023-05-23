@@ -1,0 +1,32 @@
+nav.navbar.navbar-expand-md.sticky-top.navbar-light.border-bottom.header
+  .container-fluid
+    .navbar-brand
+      = link_to root_path, class: 'nav-link', title: 'Home page' do
+        i.fa-solid.fa-graduation-cap.pe-1
+        | School App
+    button.navbar-toggler[type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation']
+      span.navbar-toggler-icon
+
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        li.nav-item.me-3
+          = link_to privacy_policy_path, class: 'primary-link' do
+            i.fa-solid.fa-file-lines.pe-1
+            | Privacy Policy
+        li.nav-item.me-3
+          = link_to users_path, class: 'primary-link' do
+            i.fa.fa-users.pe-1
+            | Users
+      ul.navbar-nav.ms-auto.me-md-2
+        - if user_signed_in?
+          a#navbarDropdown.nav-item.dropdown-toggle.text-end.mb-md-0.mb-1.primary-link[href='#' role='button' data-bs-toggle='dropdown'aria-expanded='false']
+            = current_user.email
+          ul.dropdown-menu.dropdown-menu-lg-end.me-md-3.mt-0[aria-labelledby='navbarDropdown']
+            li
+              = link_to user_path(current_user), class: "dropdown-item" do
+                .fa.fa-user.pe-1
+                span Profile
+            li
+              = link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'dropdown-item' do
+                .fa.fa-sign-out-alt.pe-1
+                span Logout

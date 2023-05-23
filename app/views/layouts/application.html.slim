@@ -11,5 +11,10 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
 
   body
-    #main-container.container-fluid
+    = render 'shared/header' if current_user
+
+    #main-container.container
+      #flash
+        = render 'shared/flash'
+
       = yield
