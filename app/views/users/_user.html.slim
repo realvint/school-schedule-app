@@ -1,0 +1,27 @@
+.mb-2
+  span> Email
+  = link_to user.email, user, class: 'orange-link'
+
+.mb-2
+  span> Sign in count:
+  = user.sign_in_count
+
+.mb-2
+  span> Current sign in at:
+  = user.current_sign_in_at
+
+.mb-2
+  span> Last sign in at:
+  = user.last_sign_in_at
+
+.mb-2
+  span> Current sign in ip:
+  = user.current_sign_in_ip
+
+.mb-2
+  span> Last sign in ip:
+  = user.last_sign_in_ip
+
+.mb-2
+  = link_to 'Delete user', user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'orange-link'
+hr

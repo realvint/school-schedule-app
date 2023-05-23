@@ -1,0 +1,40 @@
+.d-flex.justify-content-center.align-items-center.vh-100
+  .d-block.devise-form
+    .card.mb-3
+      .card-body.my-3
+        .text-center.mb-3
+          h3 Login page
+        p.text-center.text-secondary.fs-5 School Schedule and Attendance Tracking Application
+
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = render 'shared/errors', resource: resource
+
+          = f.text_field :email, class: 'form-control mb-3', placeholder: 'Email'
+          = f.password_field :password, autocomplete: 'new-password', class: 'form-control mb-3', placeholder: 'Password'
+
+          - if devise_mapping.rememberable?
+            .form-check.mb-3
+              = f.check_box :remember_me, class: 'form-check-input'
+              = f.label :remember_me, class: 'form-label'
+
+          = f.submit 'Log in', class: 'btn btn-primary w-100'
+
+        .row.my-3
+          .col
+            hr
+          .col-auto.pt-1
+            | OR
+          .col
+            hr
+
+        .text-center
+          = link_to '#', class: 'fw-semibold' do
+            i.fa-brands.fa-github.pe-2
+            | Log in with Github
+
+    - if devise_mapping.registerable? && controller_name != 'registrations'
+      .card.mb-5
+        .card-body.my-2
+          .text-center
+            | Don't have an account?
+            =< link_to 'Sign up', new_registration_path(resource_name)
