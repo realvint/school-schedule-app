@@ -38,6 +38,13 @@ group :development do
   gem 'web-console'
 end
 
+group :deploy do
+  gem 'capistrano', '~> 3.11'
+  gem 'capistrano-nvm', require: false
+  gem 'capistrano-rails', '~> 1.4'
+  gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+end
+
 group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 5.0'
