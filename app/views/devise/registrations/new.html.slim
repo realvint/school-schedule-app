@@ -22,9 +22,9 @@
             hr
 
         .text-center
-          = link_to '#', class: 'fw-semibold' do
+          = button_to omniauth_authorize_path(resource_name, :github), class: 'fw-semibold btn btn-link', data: { turbo: false } do
             i.fa-brands.fa-github.pe-2
-            | Log in with Github
+            | Sign in with Github
 
     - if controller_name != 'sessions'
       .card.mb-5
