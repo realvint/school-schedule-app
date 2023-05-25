@@ -30,3 +30,10 @@ nav.navbar.navbar-expand-md.sticky-top.navbar-light.border-bottom.header
               = link_to destroy_user_session_path, data: { turbo_method: :delete }, class: 'dropdown-item' do
                 .fa.fa-sign-out-alt.pe-1
                 span Logout
+        - else
+          = link_to new_user_session_path, class: 'primary-link me-3' do
+            i.fa-solid.fa-right-to-bracket>
+            | Sign in
+          = link_to new_user_registration_path, class: 'primary-link' do
+            i.fa-solid.fa-user-plus>
+            | Sign up
