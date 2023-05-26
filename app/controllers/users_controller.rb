@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :require_admin, only: %i[edit update destroy]
 
   def index
     @users = User.order(:created_at)
@@ -50,5 +51,11 @@ class UsersController < ApplicationController
 
   def render_turbo_stream_error
     flash.now[:alert] = @user.errors.full_messages.join('; ')
+  end
+
+  def require_admin
+    return if current_user.admin?
+
+    redirect_to root_path, alert: 'Action Forbidden!'
   end
 end

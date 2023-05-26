@@ -26,7 +26,8 @@
   span> Last sign in ip:
   = user.last_sign_in_ip
 
-.mb-2
-  = link_to 'Edit roles', edit_user_path(user), class: 'orange-link me-2'
-  = link_to 'Delete user', user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'orange-link'
+- if current_user.admin?
+  .mb-2
+    = link_to 'Edit roles', edit_user_path(user), class: 'orange-link me-2'
+    = link_to 'Delete user', user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'orange-link'
 hr
