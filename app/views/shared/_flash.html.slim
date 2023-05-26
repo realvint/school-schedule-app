@@ -2,7 +2,7 @@
   - flash.each do |type, msg|
     - if type == 'alert'
       = content_tag :div, msg, id: 'alert-flash',
-        class: 'alert  alert-danger fade show align-items-center position-fixed top-0 end-0 mt-4 me-3',
+        class: 'alert  alert-danger fade show align-items-center position-fixed top-0 end-0 mt-5 me-3',
         role: :alert,
         data: { controller: 'autohide' } do
         .justify-content-around
@@ -11,7 +11,7 @@
 
     - else
       = content_tag :div, msg, id: 'notice-flash',
-        class: 'alert alert-success alert-dismissible fade show align-items-center position-fixed top-0 end-0 mt-4 me-3',
+        class: 'alert alert-success alert-dismissible fade show align-items-center position-fixed top-0 end-0 mt-5 me-3',
         role: :alert,
         data: { controller: 'autohide' } do
         .justify-content-around

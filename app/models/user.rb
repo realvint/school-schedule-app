@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable
+  include Roleable
+
   devise :database_authenticatable, :registerable, :trackable,
          :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
@@ -12,5 +12,14 @@ class User < ApplicationRecord
       password: Devise.friendly_token[0, 20]
     )
     user
+  end
+
+  after_create do
+    # assign default role
+    self.update(student: true)
+  end
+
+  def to_s
+    email
   end
 end

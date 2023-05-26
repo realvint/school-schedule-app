@@ -1,6 +1,6 @@
 - if resource.present? && resource.errors.any?
   = content_tag :div, id: 'alert-flash',
-    class: 'alert  alert-danger fade show align-items-center position-fixed top-0 end-0 mt-4 me-3',
+    class: 'alert  alert-danger fade show align-items-center position-fixed top-0 end-0 mt-5 me-3',
     role: 'alert',
     data: { controller: 'autohide', resource_id: resource.id } do
     .row
