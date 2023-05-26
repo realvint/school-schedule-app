@@ -11,11 +11,11 @@ nav.navbar.navbar-expand-md.sticky-top.navbar-light.border-bottom.header
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
         li.nav-item.me-3
           = link_to privacy_policy_path, class: 'primary-link' do
-            i.fa-solid.fa-file-lines.pe-1
+            i.fa-solid.fa-file-lines.pe-1.d-none.d-sm-inline
             | Privacy Policy
         li.nav-item.me-3
           = link_to users_path, class: 'primary-link' do
-            i.fa.fa-users.pe-1
+            i.fa.fa-users.pe-1.d-none.d-sm-inline
             | Users
       ul.navbar-nav.ms-auto.me-md-2
         - if user_signed_in?
@@ -32,8 +32,8 @@ nav.navbar.navbar-expand-md.sticky-top.navbar-light.border-bottom.header
                 span Logout
         - else
           = link_to new_user_session_path, class: 'primary-link me-3' do
-            i.fa-solid.fa-right-to-bracket>
+            i.fa-solid.fa-right-to-bracket.d-none.d-sm-inline>
             | Sign in
           = link_to new_user_registration_path, class: 'primary-link' do
-            i.fa-solid.fa-user-plus>
+            i.fa-solid.fa-user-plus.d-none.d-sm-inline>
             | Sign up
