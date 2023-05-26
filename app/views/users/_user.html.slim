@@ -3,6 +3,10 @@
   = link_to user.email, user, class: 'orange-link'
 
 .mb-2
+  span> Roles:
+  = user.active_roles.join(", ")
+
+.mb-2
   span> Sign in count:
   = user.sign_in_count
 
@@ -23,5 +27,6 @@
   = user.last_sign_in_ip
 
 .mb-2
+  = link_to 'Edit roles', edit_user_path(user), class: 'orange-link me-2'
   = link_to 'Delete user', user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'orange-link'
 hr
