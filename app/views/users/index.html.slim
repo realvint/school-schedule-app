@@ -1,4 +1,13 @@
 h3.mt-3 All Users (#{@users.size})
-hr
 
-= render @users
+.table-responsive
+  table.table.table-bordered.table-hover
+    thead
+      tr.bg-light
+        th ID
+        th Email
+        th Roles
+        - if current_user.admin?
+          th.text-center Actions
+    tbody
+      = render @users
