@@ -1,3 +1,16 @@
+html {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+}
+
 .primary-link {
   color: #333;
   text-decoration: none;
