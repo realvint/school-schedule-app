@@ -20,6 +20,24 @@ footer {
   }
 }
 
+.blue-link {
+  color: $primary;
+  text-decoration: none;
+  &:hover {
+    color:  $primary;
+    text-decoration: underline;
+  }
+}
+
+.red-link {
+  color: $danger;
+  text-decoration: none;
+  &:hover {
+    color:  $danger;
+    text-decoration: underline;
+  }
+}
+
 .orange-link {
   color: #ff6a33;
   text-decoration: none;
