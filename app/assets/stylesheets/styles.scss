@@ -1,8 +1,39 @@
+html {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+}
+
 .primary-link {
   color: #333;
   text-decoration: none;
   &:hover {
     color:  #ff6a33;
+    text-decoration: underline;
+  }
+}
+
+.blue-link {
+  color: $primary;
+  text-decoration: none;
+  &:hover {
+    color:  $primary;
+    text-decoration: underline;
+  }
+}
+
+.red-link {
+  color: $danger;
+  text-decoration: none;
+  &:hover {
+    color:  $danger;
     text-decoration: underline;
   }
 }

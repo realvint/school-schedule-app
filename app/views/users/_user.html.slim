@@ -1,33 +1,29 @@
-.mb-2
-  span> Email
-  = link_to user.email, user, class: 'orange-link'
+tr
+  td = user.id
+  td = link_to user, user, class: 'orange-link'
+  td = user.active_roles.join(", ")
 
-.mb-2
-  span> Roles:
-  = user.active_roles.join(", ")
-
-.mb-2
-  span> Sign in count:
-  = user.sign_in_count
-
-.mb-2
-  span> Current sign in at:
-  = user.current_sign_in_at
-
-.mb-2
-  span> Last sign in at:
-  = user.last_sign_in_at
-
-.mb-2
-  span> Current sign in ip:
-  = user.current_sign_in_ip
-
-.mb-2
-  span> Last sign in ip:
-  = user.last_sign_in_ip
-
-- if current_user.admin?
-  .mb-2
-    = link_to 'Edit roles', edit_user_path(user), class: 'orange-link me-2'
-    = link_to 'Delete user', user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'orange-link'
-hr
+  / .mb-2
+  /   span> Sign in count:
+  /   = user.sign_in_count
+  /
+  / .mb-2
+  /   span> Current sign in at:
+  /   = user.current_sign_in_at
+  /
+  / .mb-2
+  /   span> Last sign in at:
+  /   = user.last_sign_in_at
+  /
+  / .mb-2
+  /   span> Current sign in ip:
+  /   = user.current_sign_in_ip
+  /
+  / .mb-2
+  /   span> Last sign in ip:
+  /   = user.last_sign_in_ip
+  /
+  - if current_user.admin?
+    td.text-center
+      = link_to icon('far fa-edit'), edit_user_path(user), class: 'orange-link me-2'
+      = link_to icon('far fa-trash-alt'), user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'orange-link'
