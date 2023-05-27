@@ -31,6 +31,21 @@
       span.fw-semibold> Last sign in ip:
       = @user.last_sign_in_ip
 
+    .mb-2
+      span.fw-semibold> Invited by:
+      = @user.invited_by
+
+    .mb-2
+      span.fw-semibold> Create by invite:
+      = boolean_label(@user.created_by_invite?)
+
+    .mb-2
+      span.fw-semibold> Is invitation accepted?:
+      = boolean_label(@user.invitation_accepted?)
+
+    - if @user.created_by_invite? && !@user.invitation_accepted?
+      = link_to 'Resend invitation', resend_invitation_user_path, data: { turbo_method: :post }, class: 'orange-link'
+
   .card-footer
     - if current_user.admin?
       = link_to 'All users', users_path, class: 'blue-link me-2'

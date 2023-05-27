@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   root 'static_pages#landing_page'
 
-  resources :users, only: %i[index show edit update destroy]
+  resources :users, only: %i[index show edit update destroy] do
+    member do
+      post :resend_invitation
+    end
+  end
 
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 end
