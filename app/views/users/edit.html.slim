@@ -1,18 +1,20 @@
-.mt-3
-  .h4
-    | Editing roles for
-    =< @user
+.card.mt-3
+  .card-header
+    .h4.mb-0
+      | Editing roles for
+      =< @user
 
-.mt-3
-  = form_for @user do |f|
-    = render 'shared/errors', resource: @user
+  .card-body
+    = form_for @user do |f|
+      = render 'shared/errors', resource: @user
 
-    - User::ROLES.each do |role|
-      label
-        => f.check_box role
-        = role.to_s.humanize
-      br
+      - User::ROLES.each do |role|
+        label
+          => f.check_box role
+          = role.to_s.humanize
+        br
 
-    .mt-2
-      = f.submit class: 'btn btn-sm btn-primary me-1'
-      = link_to 'Cancel', @user, class: 'btn btn-sm btn-outline-primary'
+      .mt-2
+        = f.submit class: 'btn btn-sm btn-primary me-1'
+  .card-footer
+    = link_to 'Cancel', @user, class: 'blue-link'
