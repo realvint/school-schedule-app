@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   include Roleable
 
-  devise :database_authenticatable, :registerable, :trackable,
+  devise :invitable, :database_authenticatable, :registerable, :trackable,
          :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
   def self.from_omniauth(access_token)

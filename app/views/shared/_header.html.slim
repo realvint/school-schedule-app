@@ -14,6 +14,11 @@ nav.navbar.navbar-expand-md.sticky-top.navbar-light.border-bottom.header
             = link_to users_path, class: 'primary-link' do
               i.fa.fa-users.pe-1.d-none.d-sm-inline
               | Users
+        - if user_signed_in?
+          li.nav-item.me-3
+            = link_to new_user_invitation_path, class: 'primary-link' do
+              i.fa.fa-user-plus.pe-1.d-none.d-sm-inline
+              | Invite user
       ul.navbar-nav.ms-auto.me-md-2
         - if user_signed_in?
           a#navbarDropdown.nav-item.dropdown-toggle.text-end.mb-md-0.mb-1.primary-link[href='#' role='button' data-bs-toggle='dropdown'aria-expanded='false']

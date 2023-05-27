@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
-  before_action :require_admin, only: %i[edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy resend_invitation]
+  before_action :require_admin, only: %i[edit update destroy resend_invitation]
 
   def index
     @users = User.order(:created_at)
@@ -37,6 +37,11 @@ class UsersController < ApplicationController
         end
       end
     end
+  end
+
+  def resend_invitation
+    @user.invite!
+    redirect_to @user, notice: 'Invitation were resent'
   end
 
   private
