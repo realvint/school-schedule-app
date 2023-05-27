@@ -43,8 +43,9 @@
       span.fw-semibold> Is invitation accepted?:
       = boolean_label(@user.invitation_accepted?)
 
-    - if @user.created_by_invite? && !@user.invitation_accepted?
-      = link_to 'Resend invitation', resend_invitation_user_path, data: { turbo_method: :post }, class: 'orange-link'
+    - if current_user.admin? || @user.invited_by == current_user
+      - if @user.created_by_invite? && !@user.invitation_accepted?
+        = link_to 'Resend invitation', resend_invitation_user_path, data: { turbo_method: :post }, class: 'orange-link'
 
   .card-footer
     - if current_user.admin?

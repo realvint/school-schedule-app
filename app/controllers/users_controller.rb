@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy resend_invitation]
+  before_action :set_user, only: %i[show edit update destroy resend_invitation require_admin_or_inviter]
   before_action :require_admin, only: %i[edit update destroy resend_invitation]
+  before_action :require_admin_or_inviter, only: %i[resend_invitation]
 
   def index
     @users = User.order(:created_at)
@@ -60,6 +61,12 @@ class UsersController < ApplicationController
 
   def require_admin
     return if current_user.admin?
+
+    redirect_to root_path, alert: 'Action Forbidden!'
+  end
+
+  def require_admin_or_inviter
+    return if current_user.admin? || @user.invited_by == current_user
 
     redirect_to root_path, alert: 'Action Forbidden!'
   end
