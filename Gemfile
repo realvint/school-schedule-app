@@ -16,6 +16,7 @@ gem 'jsbundling-rails'
 
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'devise-i18n', '~> 1.10.3'
+gem 'devise_invitable', '~> 2.0.0'
 gem 'jbuilder'
 gem 'omniauth-github', '~> 2.0.0'
 gem 'omniauth-rails_csrf_protection'
@@ -35,6 +36,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener'
   gem 'web-console'
 end
 
