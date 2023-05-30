@@ -11,6 +11,13 @@ class User < ApplicationRecord
       email: access_token.info.email,
       password: Devise.friendly_token[0, 20]
     )
+    user.provider  = access_token.provider
+    user.uid       = access_token.uid
+    user.username  = access_token.info.nickname unless user.username.present?
+    user.name      = access_token.info.name unless user.name.present?
+    user.image_url = access_token.info.image
+    user.save
+
     user
   end
 
