@@ -8,11 +8,16 @@
     = form_for @user do |f|
       = render 'shared/errors', resource: @user
 
-      - User::ROLES.each do |role|
-        label
-          => f.check_box role
-          = role.to_s.humanize
-        br
+      .mb-3
+        = f.label :name, class: 'form-label'
+        = f.text_field :name, class: 'form-control form-control-sm'
+
+      - if current_user.admin?
+        - User::ROLES.each do |role|
+          label
+            => f.check_box role
+            = role.to_s.humanize
+          br
 
       .mt-2
         = f.submit class: 'btn btn-sm btn-primary me-1'
