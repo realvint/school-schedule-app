@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :classrooms
+
   get 'privacy_policy', to: 'static_pages#privacy_policy'
 end
