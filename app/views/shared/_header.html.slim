@@ -14,6 +14,10 @@ nav.navbar.navbar-expand-md.sticky-top.navbar-light.border-bottom.header
             = link_to users_path, class: 'primary-link' do
               i.fa.fa-users.pe-1.d-none.d-sm-inline
               | Users
+          i.nav-item.me-3
+            = link_to classrooms_path, class: 'primary-link' do
+              i.fa.fa-book.pe-1.d-none.d-sm-inline
+              | Classrooms
         - if user_signed_in?
           li.nav-item.me-3
             = link_to new_user_invitation_path, class: 'primary-link' do

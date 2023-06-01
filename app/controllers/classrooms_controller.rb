@@ -16,14 +16,12 @@ class ClassroomsController < ApplicationController
 
     respond_to do |format|
       if @classroom.save
-        flash.now[:notice] = 'Classroom created'
-
-        format.turbo_stream
         format.html { redirect_to classrooms_path, notice: 'Classroom was created' }
       else
         render_turbo_stream_error
-
-        format.turbo_stream
+        format.turbo_stream do
+          render turbo_stream: prepend_flash
+        end
         format.html { render :new, status: :unprocessable_entity }
       end
     end
@@ -34,12 +32,12 @@ class ClassroomsController < ApplicationController
   def update
     respond_to do |format|
       if @classroom.update(classroom_params)
-        flash.now[:notice] = 'Classroom was updated'
-        format.turbo_stream
         format.html { redirect_to classrooms_path, notice: 'Classroom was updated' }
       else
         render_turbo_stream_error
-        format.turbo_stream
+        format.turbo_stream do
+          render turbo_stream: prepend_flash
+        end
         format.html { render :edit, status: :unprocessable_entity }
       end
     end

@@ -1,0 +1,7 @@
+tr.align-middle id="#{dom_id(classroom)}"
+  td
+    = link_to classroom.name, classroom, class: 'orange-link', data: { turbo: false }
+
+  td.text-center
+    = link_to icon('far fa-edit'), edit_classroom_path(classroom), class: 'orange-link me-2', data: { turbo: false }
+    = link_to icon('far fa-trash-alt'), classroom, class: 'orange-link', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
