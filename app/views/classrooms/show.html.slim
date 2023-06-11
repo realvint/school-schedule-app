@@ -1,0 +1,27 @@
+container
+  .row.justify-content-around.pt-2
+    .d-flex.my-1
+      div
+        = link_to icon('fa fa-arrow-left'), classrooms_path, class: 'btn btn-sm btn-outline-secondary me-2'
+
+      h4 = @classroom.name
+
+    .col-md-12
+      table.table.table-bordered
+        tr
+          th Name
+          td = @classroom.name
+        tr
+          th Classroom updated at:
+          td = l @classroom.updated_at, format: :long
+        tr
+          th Classroom created at:
+          td = l @classroom.created_at, format: :long
+
+      div
+        = link_to 'Back', classrooms_path, class: 'btn btn-outline-secondary btn-sm me-1'
+
+        = link_to 'Edit', edit_classroom_path(@classroom), class: 'btn btn-outline-primary btn-sm me-1'
+
+        = link_to 'Delete', @classroom, class: 'btn btn-outline-danger btn-sm',
+          data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
