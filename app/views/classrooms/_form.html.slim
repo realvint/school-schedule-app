@@ -1,0 +1,19 @@
+.row
+  .col-md-12.col-xxl-10.m-auto.mt-md-2
+    .card.mt-3
+      .card-header.pb-0
+        .d-flex
+          div
+            = link_to icon('fa fa-arrow-left'), classrooms_path, class: 'btn btn-sm btn-outline-secondary me-2'
+          h4 = classroom.persisted? ? 'Edit classroom' : 'New classroom'
+
+      = form_with model: classroom do |f|
+        = render 'shared/errors', resource: classroom
+
+        .card-body
+          .mb-3
+            = f.label :name, class: 'form-label'
+            span.ps-1.text-danger *
+            = f.text_field :name, class: 'form-control form-control-sm'
+
+          = f.submit class: 'btn btn-sm btn-primary'

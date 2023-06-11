@@ -1,0 +1,15 @@
+.row
+  .col-md-12.col-xxl-10.m-auto.mt-md-2
+    .d-flex.my-1.justify-content-between
+      h4 Classrooms
+      div
+        = link_to 'Add classroom', new_classroom_path, class: 'btn btn-sm btn-primary'
+    = turbo_frame_tag 'classrooms' do
+      .table-responsive
+        table.table.table-hover.table-bordered
+          thead
+            tr.bg-light
+              th Name
+              th.text-center style='width: 100px' Actions
+
+          = render @classrooms
